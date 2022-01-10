@@ -1,0 +1,9 @@
+for page in link_list: 
+    item_page = 'https://www.dndbeyond.com' + page
+    request_item_page = Request(item_page, headers={'User-Agent': 'Mozilla/5.0'})
+    open_item_page = urlopen(request_item_page).read()
+    item_soup = BeautifulSoup(open_item_page, 'html.parser')
+    for link in item_soup.find_all('a'):
+       # filtered_links = link.findall()
+        print(link.get('href'))
+#print(link_list)
